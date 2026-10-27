@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
+  <title>Seller Tools</title>
+  <!--
+    Shopee's login sends the seller here (the redirect domain registered on the
+    partner apps) with ?code=…&shop_id=… once they authorize a shop. This page
+    only hands that query on to the Seller Tools web app, which finishes the
+    connection. The destination is fixed, so this can't be used to redirect
+    anywhere else.
+  -->
+  <script>
+    location.replace('https://seller.my-quyen.workers.dev/connect/callback' + location.search);
+  </script>
+</head>
+<body>
+  <p><a id="go" href="https://seller.my-quyen.workers.dev/connect/callback">Continue to Seller Tools</a></p>
+  <script>
+    document.getElementById('go').href += location.search;
+  </script>
+</body>
+</html>
